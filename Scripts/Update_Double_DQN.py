@@ -11,7 +11,7 @@ import gymnasium as gym
 from gym.wrappers import RecordVideo
 import matplotlib.pyplot as plt
 import logging
-
+import scanpy
 
 
 class Q_Network(nn.Module):
