@@ -1,44 +1,67 @@
 # Lunar_Landing
-In this task, I will train an agent by utilze the Double Deep Q Networks to land a lunar lander safely on a landing pad on the surface of the moon.
+# Lunar Lander Project Using Double Deep Q Networks
 
-Outline
-1. Lunar Lander Environment
-In this notebook, we'll be utilizing the Gym Library by OpenAI, which offers a diverse range of environments suitable for reinforcement learning experiments. It's important to note that all development of Gym has now transitioned to Gymnasium, a continuation of the project under the stewardship of the Farama Foundation.For more detailed information, please visit the specified website: https://www.gymlibrary.dev/environments/box2d/index.html
+This project utilizes the Double Deep Q Networks (DDQN) to train an agent that can safely land a lunar lander on a designated landing pad on the moon's surface.
 
-We will focus on the Lunar Lander environment within this framework. The objective here is to achieve a safe landing for the lunar module on a specified landing pad, marked by two flag poles, located at the zero coordinates (0,0). Although landing precisely on the pad is ideal, the lander can also touch down safely elsewhere. The scenario begins with the lander at the center-top of the environment, subjected to a random initial force acting on its center of mass. The lander has access to unlimited fuel. The task is considered successfully completed when a score of 200 points is achieved.
+## Environment Description
+
+**OpenAI's Gym Library** has transitioned to **Gymnasium** by Farama Foundation. All future development will continue under Gymnasium. For more details, visit [Gymnasium's environments](https://www.gymlibrary.dev/environments/box2d/index.html).
+
+### Lunar Lander Environment
+
+The goal in the Lunar Lander environment is to land the module on a landing pad marked by two flag poles at coordinates (0,0). The module starts at the top center of the environment with a random initial force applied. The challenge is considered solved if the agent achieves an average of 200 points over the last 100 episodes.
+
+#### Action Space
+
+The agent can perform one of four discrete actions:
+- **0**: Do nothing.
+- **1**: Fire right engine.
+- **2**: Fire main engine.
+- **3**: Fire left engine.
+
+#### Observation Space
+
+The state is represented by an 8-dimensional vector:
+- Coordinates (x, y)
+- Linear velocities (x, y)
+- Lander angle and angular velocity
+- Booleans for each leg's contact with the ground
+
+#### Rewards
+
+- Landing on the pad: 100-140 points.
+- Moving away from the pad: penalty.
+- Crashing: -100 points.
+- Resting: +100 points.
+- Leg contact: +10 points per leg.
+- Main engine use: -0.3 points per frame.
+- Side engine use: -0.03 points per frame.
+
+#### Episode Termination
+
+The episode ends if:
+- The lander crashes.
+- The x-coordinate exceeds ±1.
+
+## Double Deep Q Networks (DDQN)
+
+Traditional DQNs often overestimate action values, leading to suboptimal policies. DDQN reduces this by using separate networks for action selection (`q_network`) and evaluation (`target_q_network`), enhancing stability and accuracy in learning.
+
+## Result Representation
+
+Below is a visualization of how the agent's performance improved over training sessions.
+
+### Training Progress Graph
+
+![Training Progress](path_to_progress_graph.png)
+
+### Simulation Video
+
+Here is a video demonstrating the agent using `q_network` in the Lunar Lander environment. Note that each session starts with a different initial force, so outcomes may vary.
+
+![Lunar Lander Simulation](path_to_simulation_video.png)
 
 
-1.1 Action Space:
-The agent has four discrete actions available:
-
-Do nothing.
-Fire right engine.
-Fire main engine.
-Fire left engine.
-Each action has a corresponding numerical value:
-
-Do nothing = 0
-Fire right engine = 1
-Fire main engine = 2
-Fire left engine = 3
-
-1.2 Action Space
-The agent has four discrete actions available:
-
-Do nothing.
-Fire right engine.
-Fire main engine.
-Fire left engine.
-Each action has a corresponding numerical value:
-
-Do nothing = 0
-Fire right engine = 1
-Fire main engine = 2
-Fire left engine = 3
-
-1.3 Observation Space
-
-![observations](https://github.com/xiaorui0409/Lunar_Landing/assets/151507129/2cf93749-a674-4418-948a-01944a11a207)
 
 
 
@@ -46,9 +69,6 @@ Fire left engine = 3
 
 
 
-
-
-All development of Gym has been moved to Gymnasium, a new package in the Farama Foundation that's maintained by the same team of developers who have maintained Gym for the past 18 months.
 
 https://github.com/xiaorui0409/Lunar_Landing/assets/151507129/48fb2ea9-0bd4-47b7-916a-c77d1200b25e
 
