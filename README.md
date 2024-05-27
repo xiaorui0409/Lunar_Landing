@@ -53,13 +53,12 @@ Below is a visualization of how the agent's performance improved over training s
 
 ### Training Progress Graph
 
-![Training Progress](path_to_progress_graph.png)
+![Training Progress](Scripts/picture_02.png)
 
 ### Simulation Video
 
 Here is a video demonstrating the agent using `q_network` in the Lunar Lander environment. Note that each session starts with a different initial force, so outcomes may vary.
 
-![Lunar Lander Simulation](path_to_simulation_video.png)
 
 
 
