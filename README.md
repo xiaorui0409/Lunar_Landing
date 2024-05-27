@@ -60,5 +60,4 @@ Below is a visualization of how the agent's performance improved over training s
 Here is a video demonstrating the agent using `q_network` in the Lunar Lander environment. Note that each session starts with a different initial force, so outcomes may vary.
 
 
-https://github.com/xiaorui0409/Lunar_Landing/assets/151507129/48fb2ea9-0bd4-47b7-916a-c77d1200b25e
-
+![Lunar Lander Simulation](trained_model_simulation_video.png)
