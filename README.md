@@ -53,7 +53,7 @@ Below is a visualization of how the agent's performance improved over training s
 
 ### Training Progress Graph
 
-![Training Progress](Scripts/picture_02.png)
+![Training Progress](Scripts/total_point_history.png)
 
 ### Simulation Video
 
